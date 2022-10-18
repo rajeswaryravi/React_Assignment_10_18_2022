@@ -1,0 +1,60 @@
+ASSIGNMENTS
+-------------------------------------------------
+-------------------------------------------------
+
+	1. Calculator
+
+-------------------------------------------------
+
+HTML
+----------------------
+
+<html>  
+<body>  
+	<form name="my_cal">
+		Enter first value: <input type="text" name="first"><br><br>
+		Enter second value: <input type="text" name="second"><br><br>  
+		<input type="radio" id="add" name="cal" value="Addition">Addition<br>   
+		<input type="radio" id="sub" name="cal" value="Subtraction">Subtraction<br>   
+		<input type="radio" id="mul" name="cal" value="Multiplication">Multiplication<br>  
+		<input type="radio" id="Div" name="cal" value="Division">Division<br><br>       
+		<button type="button" name="calc" value="Calculate" onclick="calculator()"> Submit </button>   
+	</form>
+	<div> 
+		<p style="margin-top:10px;">Result is : <span id="result"></span> </p>
+	</div>  
+</body>  
+</html>
+
+
+Script
+-----------
+
+function calculator() {
+  var num1 = parseInt(document.getElementsByName("first")[0].value, 10);
+  var num2 = parseInt(document.getElementsByName("second")[0].value, 10);
+  var operators = document.getElementsByName("cal");
+  var element = document.getElementById("result");
+  var cal = null,
+  length = operators.length;
+  while (length--) {
+    if (operators[length].checked) {
+      calculate = operators[length].value;
+      break;
+    }
+  }
+  switch (calculate) {
+    case "Addition":
+    element.innerHTML = num1 + num2;
+      break;
+    case "Subtraction":
+     element.innerHTML = num1 - num2;
+      break;
+    case "Multiplication":
+      element.innerHTML = num1 * num2;
+      break;
+    case "Division":
+      element.innerHTML = num1 / num2;
+      break;
+  }
+}
